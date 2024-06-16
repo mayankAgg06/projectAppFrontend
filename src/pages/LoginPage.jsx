@@ -3,8 +3,8 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
-import Navbar from '../components/Navbar'; // Import Navbar component
-import '../styles/LoginPage.css'; // Import CSS file for styling
+import Navbar from '../components/Navbar'; // Ensure this path is correct
+import '../styles/LoginPage.css'; // Ensure this path is correct
 
 const LoginPage = () => {
   const { login, authState } = useContext(AuthContext);
@@ -30,7 +30,7 @@ const LoginPage = () => {
 
   return (
     <div className="login-page">
-      <Navbar /> {/* Include Navbar component */}
+      <Navbar />
       <div className="login-container">
         <h1>Login</h1>
         <form onSubmit={onSubmit}>
