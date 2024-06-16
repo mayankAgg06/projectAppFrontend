@@ -27,11 +27,13 @@ const ApplyPage = () => {
   };
 
   return (
-    <div>
+    <div className='apply-page'>
     <Navbar />
+    <div className='apply-container'>
       <h1>Apply for Opportunity</h1>
       <p>Are you sure you want to apply for this opportunity?</p>
       <button onClick={applyForOpportunity}>Apply</button>
+    </div>
     </div>
   );
 };

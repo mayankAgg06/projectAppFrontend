@@ -27,24 +27,26 @@ const LoginPage = () => {
   };
 
   return (
-    <div>
+    <div className='login-page'>
     <Navbar />
+    <div className='login-container'>
       <h1>Login</h1>
       <form onSubmit={onSubmit}>
-        <div>
+        <div className='form-group'>
           <label>Email</label>
           <input type="email" name="email" value={email} onChange={onChange} required />
         </div>
-        <div>
+        <div className='form-group'>
           <label>Password</label>
           <input type="password" name="password" value={password} onChange={onChange} required />
         </div>
-        {error && <p>{error}</p>}
+        {error && <p className='error-message'>{error}</p>}
         <button type="submit">Login</button>
       </form>
       <p>
         Don't have an account? <a href="/register">Register here</a>
       </p>
+    </div>
     </div>
   );
 };
