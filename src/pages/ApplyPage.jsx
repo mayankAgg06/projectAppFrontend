@@ -1,8 +1,11 @@
-import React, { useContext, useEffect } from 'react';
+// ApplyPage.jsx
+
+import React, { useContext, useEffect} from 'react';
 import { AuthContext } from '../context/AuthContext';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
-import Navbar from '../components/navbar';
+import Navbar from '../components/Navbar'; // Import Navbar component
+import '../styles/ApplyPage.css'; // Import CSS file for styling
 
 const ApplyPage = () => {
   const { id } = useParams();
@@ -26,11 +29,13 @@ const ApplyPage = () => {
   };
 
   return (
-    <div>
-    <Navbar />
-      <h1>Apply for Opportunity</h1>
-      <p>Are you sure you want to apply for this opportunity?</p>
-      <button onClick={applyForOpportunity}>Apply</button>
+    <div className="apply-page">
+      <Navbar /> {/* Include Navbar component */}
+      <div className="apply-container">
+        <h1>Apply for Opportunity</h1>
+        <p>Are you sure you want to apply for this opportunity?</p>
+        <button onClick={applyForOpportunity}>Apply</button>
+      </div>
     </div>
   );
 };

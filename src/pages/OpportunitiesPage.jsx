@@ -1,8 +1,11 @@
+// OpportunitiesPage.jsx
+
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../context/AuthContext';
 import { Link } from 'react-router-dom';
-import Navbar from '../components/navbar';
+import Navbar from '../components/Navbar'; // Import Navbar component
+import '../styles/OpportunitiesPage.css'; // Import CSS file for styling
 
 const OpportunitiesPage = () => {
   const [opportunities, setOpportunities] = useState([]);
@@ -18,32 +21,30 @@ const OpportunitiesPage = () => {
   }, []);
 
   return (
-    <div>
-    <Navbar />
-      <h1>Opportunities</h1>
-      <ul>
-        {opportunities.map((opportunity) => (
-          <li key={opportunity._id}>
-            <h2>{opportunity.profileName}</h2>
-            <p>{opportunity.companyName}</p>
-            <p>{opportunity.stipend.salary} {opportunity.stipend.currency} {opportunity.stipend.salaryType}</p>
-            <p>{opportunity.location.map((loc, index) => (
-                <span key={index}>
-                  {loc}
-                  {index !== opportunity.location.length - 1 && ' | '}
-                </span>
-              ))}
-            </p>
-            <p>{opportunity.duration}</p>
-            <p>{opportunity.startDate}</p>
-            {isAuthenticated ? (
-              <Link to={`/apply/${opportunity._id}`}>Apply</Link>
-            ) : (
-              <Link to="/login">Login to Apply</Link>
-            )}
-          </li>
-        ))}
-      </ul>
+    <div className="opportunities-page">
+      <Navbar /> {/* Include Navbar component */}
+      <div className="opportunities-container">
+        <h1>Opportunities</h1>
+        <ul>
+          {opportunities.map((opportunity) => (
+            <li key={opportunity._id}>
+              <h2>{opportunity.profileName}</h2>
+              <p>{opportunity.companyName}</p>
+              <p>{opportunity.stipend}</p>
+              <p>{opportunity.location.map((each) => (
+                <span key={each}> {each} |</span>
+              ))}</p>
+              <p>{opportunity.duration}</p>
+              <p>{opportunity.startDate}</p>
+              {isAuthenticated ? (
+                <Link to={`/apply/${opportunity._id}`}>Apply</Link>
+              ) : (
+                <Link to="/login">Login to Apply</Link>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
