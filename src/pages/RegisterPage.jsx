@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 
 const RegisterPage = () => {
@@ -9,6 +10,15 @@ const RegisterPage = () => {
     email: '',
     password: '',
   });
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/opportunities');
+    }
+  }, [isAuthenticated, navigate]);
+
 
   const { name, email, password } = formData;
 

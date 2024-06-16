@@ -1,10 +1,18 @@
 import React, { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 
 const LoginPage = () => {
   const { login, authState } = useContext(AuthContext);
   const { error } = authState;
   const [formData, setFormData] = useState({ email: '', password: '' });
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/opportunities');
+    }
+  }, [isAuthenticated, navigate]);
 
   const { email, password } = formData;
 
@@ -31,6 +39,9 @@ const LoginPage = () => {
         {error && <p>{error}</p>}
         <button type="submit">Login</button>
       </form>
+      <p>
+        Don't have an account? <a href="/register">Register here</a>
+      </p>
     </div>
   );
 };

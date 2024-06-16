@@ -7,6 +7,14 @@ const ApplyPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { authState } = useContext(AuthContext);
+  const { isAuthenticated, loading } = authState;
+
+  useEffect(() => {
+    if (!isAuthenticated && !loading) {
+      navigate('/login');
+    }
+  }, [isAuthenticated, loading, navigate]);
+
 
   const applyForOpportunity = async () => {
     try {
