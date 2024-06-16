@@ -4,7 +4,7 @@ import { AuthContext } from '../context/AuthContext';
 
 const RegisterPage = () => {
   const { register, authState } = useContext(AuthContext);
-  const { error } = authState;
+  const { isAuthenticated, error } = authState;
   const [formData, setFormData] = useState({
     name: '',
     email: '',

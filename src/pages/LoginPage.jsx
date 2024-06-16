@@ -4,7 +4,7 @@ import { AuthContext } from '../context/AuthContext';
 
 const LoginPage = () => {
   const { login, authState } = useContext(AuthContext);
-  const { error } = authState;
+  const { isAuthenticated, error } = authState;
   const [formData, setFormData] = useState({ email: '', password: '' });
   const navigate = useNavigate();
 

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect} from 'react';
+import React, { useContext, useEffect } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
@@ -14,7 +14,6 @@ const ApplyPage = () => {
       navigate('/login');
     }
   }, [isAuthenticated, loading, navigate]);
-
 
   const applyForOpportunity = async () => {
     try {
