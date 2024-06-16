@@ -4,7 +4,7 @@ import setAuthToken from "../utils/setAuthToken";
 
 const AuthContext = createContext();
 
-axios.defaults.baseURL = "http://localhost:3000";
+axios.defaults.baseURL = "https://projectappbackend.onrender.com";
 
 const AuthProvider = ({ children }) => {
   const [authState, setAuthState] = useState({
