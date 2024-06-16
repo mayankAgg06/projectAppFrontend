@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
+import Navbar from '../components/navbar';
 
 const ApplyPage = () => {
   const { id } = useParams();
@@ -26,6 +27,7 @@ const ApplyPage = () => {
 
   return (
     <div>
+    <Navbar />
       <h1>Apply for Opportunity</h1>
       <p>Are you sure you want to apply for this opportunity?</p>
       <button onClick={applyForOpportunity}>Apply</button>

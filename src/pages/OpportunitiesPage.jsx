@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../context/AuthContext';
 import { Link } from 'react-router-dom';
+import Navbar from '../components/navbar';
 
 const OpportunitiesPage = () => {
   const [opportunities, setOpportunities] = useState([]);
@@ -18,6 +19,7 @@ const OpportunitiesPage = () => {
 
   return (
     <div>
+    <Navbar />
       <h1>Opportunities</h1>
       <ul>
         {opportunities.map((opportunity) => (
