@@ -19,8 +19,9 @@ const OpportunitiesPage = () => {
   }, []);
 
   return (
-    <div>
+    <div className='opportunities-page'>
     <Navbar />
+    <div className='opportunities-container'>
       <h1>Opportunities</h1>
       <ul>
         {opportunities.map((opportunity) => (
@@ -45,6 +46,7 @@ const OpportunitiesPage = () => {
           </li>
         ))}
       </ul>
+      </div>
     </div>
   );
 };
