@@ -26,8 +26,11 @@ const OpportunitiesPage = () => {
           <li key={opportunity._id}>
             <h2>{opportunity.profileName}</h2>
             <p>{opportunity.companyName}</p>
-            <p>{opportunity.stipend}</p>
-            <p>{opportunity.location}</p>
+            <p>{opportunity.stipend.salary} {opportunity.stipend.currency} {opportunity.stipend.salaryType}</p>
+            <p>{opportunity.location.map((each)=>(
+              <span> {each} |</span>
+            ))}
+            </p>
             <p>{opportunity.duration}</p>
             <p>{opportunity.startDate}</p>
             {isAuthenticated ? (
