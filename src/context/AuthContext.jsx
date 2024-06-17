@@ -95,6 +95,13 @@ const AuthProvider = ({ children }) => {
     });
   };
 
+  const clearError = () => {
+    setAuthState((prevState) => ({
+      ...prevState,
+      error: null,
+    }));
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -102,6 +109,7 @@ const AuthProvider = ({ children }) => {
         register,
         login,
         logout,
+        clearError,
       }}
     >
       {children}

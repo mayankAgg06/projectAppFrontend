@@ -5,7 +5,7 @@ import Navbar from '../components/navbar';
 import "../styles/LoginPage.css"
 
 const LoginPage = () => {
-  const { login, authState } = useContext(AuthContext);
+  const { login, authState, clearError } = useContext(AuthContext);
   const { isAuthenticated, error } = authState;
   const [formData, setFormData] = useState({ email: '', password: '' });
   const navigate = useNavigate();
@@ -14,6 +14,7 @@ const LoginPage = () => {
     if (isAuthenticated) {
       navigate('/opportunities');
     }
+    clearError();
   }, [isAuthenticated, navigate]);
 
   const { email, password } = formData;
@@ -23,6 +24,7 @@ const LoginPage = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    clearError();
     login(formData);
   };
 
