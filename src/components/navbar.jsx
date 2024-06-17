@@ -18,7 +18,6 @@ const Navbar = () => {
           <Link to="/opportunities">Opportunities</Link>
           {isAuthenticated ? (
             <>
-              <span className="navbar-user">Welcome, {user && user.name}</span>
               <button onClick={handleLogout} className="navbar-button">Logout</button>
             </>
           ) : (
