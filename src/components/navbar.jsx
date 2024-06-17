@@ -1,31 +1,34 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
+import '../styles/Navbar.css';
 
 const Navbar = () => {
   const { authState, logout } = useContext(AuthContext);
-  const { isAuthenticated } = authState;
+  const { isAuthenticated, user } = authState;
 
   const handleLogout = () => {
     logout();
   };
 
   return (
-    <nav>
-      <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/opportunities">Opportunities</Link></li>
-        {isAuthenticated ? (
-          <>
-            <li><button onClick={handleLogout}>Logout</button></li>
-          </>
-        ) : (
-          <>
-            <li><Link to="/login">Login</Link></li>
-            <li><Link to="/register">Register</Link></li>
-          </>
-        )}
-      </ul>
+    <nav className='navbar'>
+      <div className='navbar-container'>
+      <div className="navbar-links">
+          <Link to="/opportunities">Opportunities</Link>
+          {isAuthenticated ? (
+            <>
+              <span className="navbar-user">Welcome, {user && user.name}</span>
+              <button onClick={handleLogout} className="navbar-button">Logout</button>
+            </>
+          ) : (
+            <>
+              <Link to="/login" className="navbar-button">Login</Link>
+              <Link to="/register" className="navbar-button">Register</Link>
+            </>
+          )}
+        </div>
+      </div>
     </nav>
   );
 };
