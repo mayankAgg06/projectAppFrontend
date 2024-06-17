@@ -7,7 +7,6 @@
     min-height: 100vh;
     padding: 20px;
     background-color: #f0f0f0;
-    margin: 60px;
   }
   
   .register-container {
@@ -17,10 +16,11 @@
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 30px;
+    margin: 50px;
   }
   
   .form-group {
+    margin: 10px;
     margin-bottom: 15px;
   }
   
