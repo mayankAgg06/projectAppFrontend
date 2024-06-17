@@ -6,6 +6,7 @@ import OpportunitiesPage from "./pages/OpportunitiesPage";
 import ApplyPage from "./pages/ApplyPage";
 import PrivateRoute from "./components/PrivateRoute";
 import { AuthProvider } from "./context/AuthContext";
+import HomePage from "./pages/HomePage";
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
       <Routes>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
-        <Route path="/opportunities" element={<OpportunitiesPage />} />
+        <Route path="/opportunities" element={<OpportunitiesPage />}
+         />
         <Route
           path="/apply/:id"
           element={
@@ -23,6 +25,7 @@ function App() {
             </PrivateRoute>
           }
         />
+        <Route path="/" element={<HomePage />} />
       </Routes>
       </div>
     </AuthProvider>
