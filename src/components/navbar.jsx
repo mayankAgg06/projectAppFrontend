@@ -16,6 +16,7 @@ const Navbar = () => {
       <div className='navbar-container'>
       <div className="navbar-links">
           <Link to="/opportunities">Opportunities</Link>
+          <Link to="/">Home</Link>
           {isAuthenticated ? (
             <>
               <button onClick={handleLogout} className="navbar-button">Logout</button>
